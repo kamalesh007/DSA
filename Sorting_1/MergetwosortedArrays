@@ -1,0 +1,44 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int[] solve(final int[] A, final int[] B) {
+        int lPointer=0;
+        int rPointer=0;
+        int[] ans=new int[A.length+B.length];
+        int i=0;
+        while(lPointer<A.length && rPointer<B.length)
+        {
+            if(A[lPointer]<=B[rPointer])
+            {
+                ans[i]=A[lPointer];
+                lPointer++;
+                i++;
+            }
+            else
+            {
+                ans[i]=B[rPointer];
+                rPointer++;
+                i++;
+            }
+        }
+        if(lPointer == A.length)
+        {
+            while(rPointer < B.length)
+            {
+                ans[i]=B[rPointer];
+                rPointer++;
+                i++;
+            }
+        }
+        else if(rPointer==B.length)
+        {
+            while(lPointer<A.length)
+            {
+                ans[i]=A[lPointer];
+                lPointer++;
+                i++;
+            }
+        }
+        
+        return ans;
+    }
+}
